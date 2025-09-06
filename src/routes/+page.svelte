@@ -43,11 +43,12 @@
         const initialQrPosition = Sprites.qr.position.copy();
 
         Sprites.qr.setStyle('z-index', "3");
+        Sprites.qr.setStyle('border-radius', "8px");
 
         view.scroll.addEventHandler('@qr/enter', ({ progress }) => {
             Animations.translateY(Sprites.qr, {
                 from: initialQrPosition.y,
-                to: vh(.1)
+                to: vh(.05)
             }, progress);
 
             Sprites.qr.size.x = vw(.5 + progress * .25);
@@ -97,6 +98,8 @@
             siempre disponible un botón que le permita
             llamar a un mesero, haciendo que tu atención
             sea óptima y sin esperas innecesarias
+            <br/>
+            <button class="action">Más información</button>
         </div>
     </div>
 </div>
@@ -162,7 +165,7 @@
     .qr-info {
         position: fixed;
         z-index: 3;
-        top: 50vh;
+        top: 45vh;
         width: 75vw;
         left: 12.5vw;
         opacity: 0;
@@ -176,7 +179,19 @@
     }
 
     .qr-content {
-        font-size: 16;
         font-family: Vesper Libre, sans-serif;
+    }
+
+    .action {
+        width: 100%;
+        font-size: 12px;
+        height: 32px;
+        background: #FDBB65;
+        border: none;
+        color: black;
+        border-radius: 4px;
+
+        font-weight: 600;
+        margin-top: 16px;
     }
 </style>
